@@ -8,8 +8,6 @@ RUN apt-get update -q \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
-        gcc \
-        gcc-multilib \
         git \
         jq \
         tar \
@@ -27,5 +25,3 @@ RUN curl -JLso verus-install.zip https://github.com/verus-lang/verus/releases/do
 RUN unzip verus-install.zip
 
 RUN rm verus-install.zip
-
-RUN cargo install cargo-verus
