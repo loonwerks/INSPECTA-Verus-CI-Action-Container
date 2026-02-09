@@ -95,10 +95,6 @@ RUN cd ~ && wget https://github.com/dornerworks/microkit/releases/download/inspe
   rm -rf microkit-sdk-${MICROKIT_VERSION}-inspecta-${MICROKIT_INSPECTA_VERSION}.tar.gz microkit && \
   mv microkit-sdk-${MICROKIT_VERSION} microkit
 
-RUN cd ~ && wget https://github.com/verus-lang/verus/releases/download/release%2F${VERUS_VERSION}/verus-${VERUS_VERSION}-x86-linux.zip && \
-  unzip verus-${VERUS_VERSION}-x86-linux.zip && \
-  rm -rf verus-${VERUS_VERSION}-x86-linux.zip
-
 RUN cd ~ && wget https://github.com/mozilla/grcov/releases/download/v0.8.19/grcov-x86_64-unknown-linux-gnu.tar.bz2 && \
   tar -xvf grcov-x86_64-unknown-linux-gnu.tar.bz2 && \
   mv grcov /usr/bin/
