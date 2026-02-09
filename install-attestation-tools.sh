@@ -65,7 +65,7 @@ git clone https://github.com/ku-sldg/copland-manifest-tools.git \
 popd # back to $AM_REPOS_ROOT
 
 git clone https://github.com/ku-sldg/cvm.git \
-    && cd cvm \
+    && pushd cvm \
     && dune build \
     && dune install \
     && popd
