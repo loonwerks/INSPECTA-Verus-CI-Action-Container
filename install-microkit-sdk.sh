@@ -51,7 +51,7 @@ rm -rf ${MICROKIT_DIR}
 
 # Remove apt packages no longer needed after sdk build
 apt purge --auto-remove -y \
-    pandoc texlive-latex-base texlive-latex-recommended texlive-fonts-recommended texlive-fonts-extra libxml2-utils \
+    pandoc texlive-latex-base texlive-latex-recommended texlive-fonts-recommended texlive-fonts-extra \
     && apt-get clean autoclean \
     && apt-get autoremove --yes \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/

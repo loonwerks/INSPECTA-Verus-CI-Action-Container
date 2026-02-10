@@ -30,7 +30,6 @@ RUN apt-get update -q \
         unzip \
         vim \
         wget \
-        libxml2-utils \
     && apt-get clean autoclean \
     && apt-get autoremove --yes \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/
