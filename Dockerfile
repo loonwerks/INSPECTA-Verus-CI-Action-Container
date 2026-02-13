@@ -86,7 +86,7 @@ RUN echo "alias ..='cd ..'" >> ${HOME}/.bash_aliases
 COPY gen_config.json.debug .
 COPY gen_config.json.release .
 
-RUN cd ~ && wget https://github.com/dornerworks/microkit/releases/download/inspecta-${MICROKIT_INSPECTA_VERSION}/microkit-sdk-${MICROKIT_VERSION}-inspecta-${MICROKIT_INSPECTA_VERSION}.tar.gz && \
+RUN wget https://github.com/dornerworks/microkit/releases/download/inspecta-${MICROKIT_INSPECTA_VERSION}/microkit-sdk-${MICROKIT_VERSION}-inspecta-${MICROKIT_INSPECTA_VERSION}.tar.gz && \
   tar -xzf microkit-sdk-${MICROKIT_VERSION}-inspecta-${MICROKIT_INSPECTA_VERSION}.tar.gz && \
   rm -rf microkit-sdk-${MICROKIT_VERSION}-inspecta-${MICROKIT_INSPECTA_VERSION}.tar.gz microkit && \
   mv microkit-sdk-${MICROKIT_VERSION} microkit && \
