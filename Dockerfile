@@ -73,17 +73,9 @@ ENV MICROKIT_BOARD=qemu_virt_aarch64
 # downloading a JDK) so that Slash scripts can be run
 ENV SIREUM_HOME=${PROVERS_DIR}/Sireum
 ENV PATH=${SIREUM_HOME}/bin:${PATH}
+COPY install-minimal-sireum.sh .
+RUN chmod +x install-minimal-sireum.sh && ./install-minimal-sireum.sh
 
-RUN mkdir -p ${SIREUM_HOME}/bin/linux/java
-
-RUN ln -s /usr/lib/jvm/java-21-openjdk-amd64/* ${SIREUM_HOME}/bin/linux/java/
-RUN wget https://raw.githubusercontent.com/sireum/kekinian/refs/heads/master/versions.properties -O ${SIREUM_HOME}/versions.properties
-RUN echo "$(grep "^org.sireum.version.java=" ${SIREUM_HOME}/versions.properties | cut -d'=' -f2)" > ${SIREUM_HOME}/bin/linux/java/VER
-RUN wget https://raw.githubusercontent.com/sireum/kekinian/refs/heads/master/bin/init.sh -O ${PROVERS_DIR}/Sireum/bin/init.sh
-RUN chmod 700 ${SIREUM_HOME}/bin/init.sh && SIREUM_NO_SETUP=true ${SIREUM_HOME}/bin/init.sh
-RUN ${SIREUM_HOME}/bin/sireum --init
-RUN rm -rf ${SIREUM_HOME}/bin/linux/cs ${SIREUM_HOME}/bin/linux/cvc* ${SIREUM_HOME}/bin/linux/z3 ${SIREUM_HOME}/lib/jacoco* ${SIREUM_HOME}/lib/marytts_text2wav.jar
-RUN rm -rf ${HOME}/Downloads/sireum
 RUN echo "eval $(opam env)" >> ${HOME}/.bash_aliases
 RUN echo "alias env='env | sort'" >> ${HOME}/.bash_aliases
 RUN echo "alias dir='ls -lFGa'" >> ${HOME}/.bash_aliases
