@@ -99,6 +99,6 @@ RUN cd ~ && wget https://github.com/mozilla/grcov/releases/download/v0.8.19/grco
 
 ENV PATH=${PATH}:~/verus-x86-linux/
 ENV MICROKIT_BOARD=zcu102
-ENV MICROKIT_SDK=/root/microkit/
+ENV MICROKIT_SDK=/microkit/
 ENV MICROKIT_CONFIG=debug
 
