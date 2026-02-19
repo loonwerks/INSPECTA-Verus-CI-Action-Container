@@ -16,6 +16,7 @@ RUN apt-get update -q \
     && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends \
         ca-certificates \
         clang \
+        cloc \
         curl \
         default-jre \
         git \
