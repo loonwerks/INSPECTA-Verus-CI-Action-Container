@@ -34,9 +34,10 @@ rm ${MICROKIT_DIR}/aarch64-toolchain.tar.gz
 PATH=${MICROKIT_DIR}/arm-gnu-toolchain-12.2.rel1-x86_64-aarch64-none-elf/bin:${PATH}:.
 
 git clone https://github.com/Ivan-Velickovic/seL4 --branch microkit_domains
+pushd seL4 && git checkout c63bcb11e6ff3291c9d75af401b124c3f915fcdf && popd
 
 git clone https://github.com/JE-Archer/microkit --branch domains
-cd microkit
+pushd microkit && git checkout 24abfc8a6ef39db5d5df9190a9bff5d780d667c0
 
 python3.12 -m venv pyenv
 ./pyenv/bin/pip install --upgrade pip setuptools wheel
